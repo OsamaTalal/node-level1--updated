@@ -1,15 +1,9 @@
-
-
-name & schema
-
-
-
 {
-  firstname: sssss;
-  lastname: sssssssss;
-  email: ssssssssssss;
-  phoneNumber: ssssssssssssss;
-  country: sssssssssss;
-  gender: ssssssssss;
-
+  firstname: 'Osama',
+  lastname: 'Ali',
+  email: 'osamatalal744@gmail.com',
+  phoneNumber: '05318618003',
+  Age: '16',
+  country: 'Egypt',
+  gender: 'Male'
 }
