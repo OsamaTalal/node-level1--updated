@@ -34,12 +34,23 @@ app.get("/", (req, res) => {
   // result ==> array of objects
   console.log("-----------------------------------------------------------")
   User.find()
-  .then((result) => {
-    res.render("index", {arr: result});
-  }).catch(() => {
-    console.log(err);
-  })
+    .then((result) => {
+      res.render("index", { arr: result });
+    }).catch(() => {
+      console.log(err);
+    })
 
+});
+
+
+app.get("/user/", (req, res) => {
+  // result ==> object
+  User.findById("66827d3fe9d9b9de50e399f4")
+    .then((result) => { console.log(result)}).catch(() => {
+      console.log(err)
+    })
+
+  res.render("user/view")
 
 
 });
@@ -48,9 +59,6 @@ app.get("/user/add.html", (req, res) => {
   res.render("user/add")
 });
 
-app.get("/user/view.html", (req, res) => {
-  res.render("user/view")
-});
 
 app.get("/user/edit.html", (req, res) => {
   res.render("user/edit")
@@ -61,17 +69,15 @@ app.get("/user/edit.html", (req, res) => {
 
 
 app.post("/user/add.html", (req, res) => {
-  console.log(req.body)
-  res.redirect("/user/add.html")
   const user = new User(req.body);
-  user.save()
+  user
+    .save()
     .then(() => {
       res.redirect("/");
-
     })
     .catch((err) => {
-      console.log(err)
-    })
+      console.log(err);
+    });
 });
 
 
